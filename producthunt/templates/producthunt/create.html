@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+ProductHunt|Create
+{% endblock %}
+
+{% block content %}
+    {% if error %}
+        {{ error }}
+        <br><br>
+    {% endif %}
+<h2>Add Product!</h2>
+
+<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+{% csrf_token %}
+Title:
+<br>
+<input type="text" name="title">
+<br>
+Body:
+<br>
+<input type="text" name="body">
+<br>
+Url:
+<br>
+<input type="text" name="url">
+<br>
+Icon:
+<br>
+<input type="file" name="icon" accept="image/*">
+<br>
+Image:
+<br>
+<input type="file" name="image" accept="image/*">
+<br><br>
+<input type="submit" value="Add Product" class="btn btn-primary">
+</form>
+{% endblock %}
